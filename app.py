@@ -89,7 +89,7 @@ if len(imageArray)>0:
             for label, re in zip(labels, res[0]):
                 if label != 'NORMAL':
                     if ref[label] >= re:
-                        col2.warning(label + ' is positive with : ' +  str(re*100) + ' accuracy ')
+                        col2.warning(label + ' is positive with : ' +  str(re*100) + ' percent ')
                         normal = False
                     else:
                         col2.success(label + ' is negative.')
