@@ -69,6 +69,7 @@ if uploadedFiles:
         col1, col2 = container.columns([230, 230])
         with col1:
             col1.image(cv2.resize(im, (224, 224), interpolation=cv2.INTER_CUBIC), channels="BGR")
+            col1.write(upload_file.name)
         containerArray.append(container)
         imageArray.append(im)
         betaColumnArray.append(col2)
