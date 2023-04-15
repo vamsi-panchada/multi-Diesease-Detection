@@ -4,6 +4,7 @@ from tensorflow.keras.applications.mobilenet import MobileNet
 from tensorflow.keras.layers import GlobalAveragePooling2D, Dense, Dropout, Flatten
 from tensorflow.keras.models import Sequential
 import cv2
+import getData
 
 ref = {'Atelectasis': 0.027347086,
        'Cardiomegaly': 0.010086267,
@@ -46,6 +47,12 @@ multi_disease_model.add(Dense(512))
 multi_disease_model.add(Dropout(0.5))
 multi_disease_model.add(Dense(len(labels), activation = 'sigmoid'))
 multi_disease_model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['binary_accuracy', 'mae'])
+
+# https://drive.google.com/file/d/11c0YiKInXlTQHy8jfKYhUkO9_bhcLs0C/view?usp=share_link
+file_id = '11c0YiKInXlTQHy8jfKYhUkO9_bhcLs0C'
+destination = 'multiClassMobileNet.hdf5'
+getData.download_file_from_google_drive(file_id, destination)
+
 
 multi_disease_model.load_weights('multiClassMobileNet.hdf5')
 
