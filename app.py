@@ -104,4 +104,7 @@ if len(imageArray)>0:
             
             if normal:
                 col2.write("It looks everything is fine")
-
+            
+        containerArray.clear()
+        imageArray.clear()
+        betaColumnArray.clear()
